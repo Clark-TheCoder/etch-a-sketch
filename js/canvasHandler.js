@@ -1,4 +1,7 @@
 const canvas = document.getElementById("canvas");
+canvas.addEventListener("click", setDrawingFunction);
+canvas.addEventListener("mouseleave", resetIsDrawing);
+
 function createPixels(input) {
   let totalPixels = input ** 2;
 
@@ -16,8 +19,9 @@ function createPixels(input) {
     pixel.style.height = pixelHeight + "px";
     pixel.style.width = pixelWidth + "px";
     pixel.classList.add("pixel"); // general styling
+    pixel.addEventListener("mouseover", draw);
     canvas.appendChild(pixel);
   }
 }
 
-createPixels(100); //test
+createPixels(10); //test

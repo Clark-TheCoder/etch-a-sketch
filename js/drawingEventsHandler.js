@@ -13,7 +13,6 @@ function resetIsDrawing() {
 
 function draw(e) {
   if (isDrawing === true) {
-    console.log("draw");
-    e.target.style.background = "pink";
+    e.target.style.background = selectedColour;
   }
 }

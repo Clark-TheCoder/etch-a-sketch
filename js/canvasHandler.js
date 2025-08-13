@@ -1,6 +1,20 @@
 const canvas = document.getElementById("canvas");
+// Add event listeners to canvas element
 canvas.addEventListener("click", setDrawingFunction);
 canvas.addEventListener("mouseleave", resetIsDrawing);
+
+// Get pixel input value from user
+const pixelInput = document.getElementById("pixel_input");
+const enterButton = document.getElementById("enter_button");
+enterButton.addEventListener("click", () => {
+  let numOfPixels = pixelInput.value;
+  if (numOfPixels) {
+    clearPixels();
+    createPixels(numOfPixels);
+  } else if (!numOfPixels) {
+    alert("Please enter the dimentions of your canvas.");
+  }
+});
 
 function createPixels(input) {
   let totalPixels = input ** 2;
@@ -24,4 +38,6 @@ function createPixels(input) {
   }
 }
 
-createPixels(10); //test
+function clearPixels() {
+  canvas.innerHTML = "";
+}

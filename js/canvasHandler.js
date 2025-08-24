@@ -1,43 +1,50 @@
-const canvas = document.getElementById("canvas");
-// Add event listeners to canvas element
-canvas.addEventListener("click", setDrawingFunction);
-canvas.addEventListener("mouseleave", resetIsDrawing);
+import Pixel from "./pixelHandler.js";
 
-// Get pixel input value from user
-const pixelInput = document.getElementById("pixel_input");
-const enterButton = document.getElementById("enter_button");
-enterButton.addEventListener("click", () => {
-  let numOfPixels = pixelInput.value;
-  if (numOfPixels) {
-    clearPixels();
-    createPixels(numOfPixels);
-  } else if (!numOfPixels) {
-    alert("Please enter the dimentions of your canvas.");
+export default class Canvas {
+  constructor(canvas) {
+    this.canvas = document.getElementById(canvas);
+    this.canDraw = false;
   }
-});
 
-function createPixels(input) {
-  let totalPixels = input ** 2;
-
-  // Seperated the height and width values of the dimentions of both the canvas
-  // and the pixels incase the grid is not perfectly square in future
-  let canvasHeight = canvas.clientHeight;
-  let canvasWidth = canvas.clientWidth;
-
-  let pixelHeight = canvasHeight / input;
-  let pixelWidth = canvasWidth / input;
-
-  // Dynamically create pixels and append to canvas
-  for (let i = 0; i < totalPixels; i++) {
-    let pixel = document.createElement("div");
-    pixel.style.height = pixelHeight + "px";
-    pixel.style.width = pixelWidth + "px";
-    pixel.classList.add("pixel"); // general styling
-    pixel.addEventListener("mouseover", draw);
-    canvas.appendChild(pixel);
+  getCanvas() {
+    return this.canvas;
   }
-}
 
-function clearPixels() {
-  canvas.innerHTML = "";
+  setCanvas(newCanvas) {
+    this.canvas = document.getElementById(newCanvas);
+    return this.canvas;
+  }
+
+  createPixels(num) {
+    // Clear the canvas
+    this.getCanvas().innerHTML = "";
+    // Create a new canvas
+    let totalPixels = num ** 2;
+
+    let canvasHeight = this.getCanvas().clientHeight;
+    let canvasWidth = this.getCanvas().clientWidth;
+
+    let pixelHeight = canvasHeight / num;
+    let pixelWidth = canvasWidth / num;
+
+    // Dynamically create pixels and append to canvas
+    for (let i = 0; i < totalPixels; i++) {
+      const pixel = new Pixel(pixelHeight, pixelWidth);
+      this.getCanvas().appendChild(pixel.getPixel());
+    }
+  }
+
+  toggleDrawing() {
+    this.canDraw = !this.canDraw;
+    console.log(this.canDraw);
+    return this.canDraw;
+  }
+
+  getCanDraw() {
+    return this.canDraw;
+  }
+
+  setCanDraw(status) {
+    return (this.canDraw = status);
+  }
 }

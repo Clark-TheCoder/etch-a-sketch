@@ -1,4 +1,4 @@
-let selectedColour;
+export let selectedColour;
 
 const quickColours = document.getElementById("quick_colours");
 [...quickColours.children].forEach((child) => {

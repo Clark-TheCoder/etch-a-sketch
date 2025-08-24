@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -13,9 +19,13 @@
         <h1>Etch-A-Sketch</h1>
       </div>
       <div id="settings">
-        <h3>Enter the dimentions of your canvas between 1-100:</h3>
-        <input id="pixel_input" type="number" min="1" max="100" />
-        <button id="enter_button">Enter</button>
+        <div class="setting_container">
+          <h3>Enter the dimentions of your canvas between 1-100:</h3>
+          <div class="input_container">
+            <input id="pixel_input" type="number" min="1" max="100" />
+            <button id="enter_button">Enter</button>
+          </div>
+        </div>
       </div>
       <div id="canvas"></div>
       <div id="colors">
@@ -28,8 +38,12 @@
           <button id="purple" value="purple">Purple</button>
           <button id="pink" value="pink">Pink</button>
           <button id="black" value="black">Black</button>
+          <button id="white" value="rgb(244, 244, 229)">Erase</button>
         </div>
-        <input id="colour_picker" type="color" />
+        <div class="colour_picker_container">
+          <h3>Select Colour:</h3>
+          <input id="colour_picker" type="color" />
+        </div>
       </div>
     </main>
     <script type="module" src="js/main.js"></script>

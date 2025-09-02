@@ -19,3 +19,9 @@ It’s a quick HTML/CSS/JS experiment to mess around with the DOM and event list
 - HTML
 - CSS
 - JavaScript
+
+<!-- How To Run -->
+
+- Open terminal (where index.html is)
+- Run: npx serve
+- Enter a pixel size, pick a color, and start drawing :D

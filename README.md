@@ -2,6 +2,8 @@
 
 This is a browser-based Etch-a-Sketch style app where the user can control the size of the pixels. The user enters any number between 1 and 100 to set how many pixels run along one row of the canvas. Users can then draw by moving their mouse over the pixels.
 
+![Etch-A-Sketch in action!](./photos/prototype.png)
+
 ## How It Works
 
 - User selects how many pixels they want
@@ -29,5 +31,3 @@ This project took me months to complete when I started coding.
 - Open terminal (where index.html is)
 - Run: npx serve
 - Enter a pixel size, pick a color, and start drawing :D
-
-![Etch-A-Sketch in action!](./photos/prototype.png)

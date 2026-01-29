@@ -7,6 +7,7 @@ This is a browser-based Etch-a-Sketch style app where the user can control the s
 - User selects how many pixels they want
 - Pick a color
 - Mouseover event listener allows the user to start drawing on the canvas
+- Click to draw, click again to stop drawing or leave the canvas area
 - Reset or erase
 
 <!-- Why I Made It -->
